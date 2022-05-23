@@ -18,6 +18,19 @@ Run the game with
 
     python spicy_snake/snake.py
     
+### Testing
+
+Run the tests with
+
+    pytest
+
+or
+   
+    pytest -v
+
+Calculate test coverage with:
+
+    pytest --cov
 
 ### License
 

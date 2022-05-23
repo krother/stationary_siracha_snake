@@ -17,7 +17,7 @@ curses.noecho()
 curses.raw()
 screen.keypad(False)
 
-win = curses.newwin(80, 25, 0, 0)
+win = curses.newwin(40, 15, 0, 0)
 win.nodelay(True)
 
 
