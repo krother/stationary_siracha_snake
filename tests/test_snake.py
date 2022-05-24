@@ -56,3 +56,6 @@ def test_move_fraction():
         move(position, 'down')
 
 #TODO: check for the boundaries of the playing field
+
+def test_fail():
+    assert False

@@ -1,5 +1,7 @@
 # Spicy Snake
 
+![Tests with pytest](https://github.com/krother/stationary_siracha_snake/workflows/Snake/badge.svg)
+
 a snake game written in Python
 
 
