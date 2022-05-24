@@ -54,8 +54,3 @@ def test_move_fraction():
     position = (3.14159, 5)  # x, y
     with pytest.raises(Exception):  # test passes if an Exception is generated
         move(position, 'down')
-
-#TODO: check for the boundaries of the playing field
-
-def test_fail():
-    assert False
