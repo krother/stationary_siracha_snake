@@ -1,0 +1,24 @@
+
+class Snake:
+
+    def __init__(self, xstart, ystart):
+        self.head = xstart, ystart
+        self.tail = [self.head]
+        self.growing = 0
+        self.direction = 'right'
+
+    def grow(self):
+        """Memorizes that the snake should grow when it moves next time"""
+        ...
+
+    def forward(self):
+        """Moves the snake one step ahead"""
+        ...
+
+    def set_direction(self, direction):
+        """Moves the head to a new direction"""
+        ...
+
+    def check_collision(self, playground):
+        """Returns True if the head hits an obstacle or the tail"""
+        ...
