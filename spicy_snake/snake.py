@@ -5,10 +5,12 @@ import curses
 
 LEFT = (-1, 0)
 RIGHT = (1, 0)
-UP = (0, -1)
+UP = (0, -1)  #FIXME: is this correct?
 DOWN = (0, 1)
 
+# ASCII codes of characters on the keyboard
 KEY_COMMANDS = {97: LEFT, 100: RIGHT, 119: UP, 115: DOWN}
+#TODO: use arrow keys instead
 
 # prepare the screen
 screen = curses.initscr()
@@ -25,38 +27,43 @@ win.nodelay(True)
 
 
 def game_loop(screen):
-    x, y = 5, 5
+    x, y = 5, 5  # player position
 
-    pg = Playground(30, 14)
+    pg = Playground(30, 14)  #FIXME: should this be initialized before?
 
     # draw
+    #FIXME: redundant with paragraph below
     screen.clear()
+    # draw the player:
     screen.addch(y, x, "O", curses.color_pair(1))
-    for x in range(31):
-        for y in range(15):
-            if pg.is_obstacle((x, y)):
-                screen.addch(y, x, "#", curses.color_pair(2))
+    # draw the playground:
+    for pgx in range(31):
+        for pgy in range(15):
+            if pg.is_obstacle((pgx, pgy)):
+                screen.addch(pgy, pgx, "#", curses.color_pair(2))
     win.refresh()
     screen.refresh()
 
     while True:
 
-        char = win.getch()
-        direction = KEY_COMMANDS.get(char)
+        # move the player
+        char = win.getch() # returns the code of a pressed key
+        direction = KEY_COMMANDS.get(char)  # direction is a tuple or None
         if direction:
             dx, dy = direction
             x += dx
             y += dy
 
             # draw
-            screen.clear()
+            screen.clear()  #FIXME: this removes the frame
             screen.addch(y, x, "O", curses.color_pair(1))
+            #FIXME: move playground drawing code somewhere else
+            for pgx in range(31):
+                for pgy in range(15):
+                    if pg.is_obstacle((pgx, pgy)):
+                        screen.addch(pgy, pgx, "#", curses.color_pair(2))
             win.refresh()
             screen.refresh()
-            for x in range(31):
-                for y in range(15):
-                    if pg.is_obstacle((x, y)):
-                        screen.addch(y, x, "#", curses.color_pair(2))
 
 
 
