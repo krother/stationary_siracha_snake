@@ -1,6 +1,7 @@
 
-from spicy_snake.playground import Playground
 import curses
+
+from spicy_snake.playground import Playground
 from spicy_snake.screen_helpers import prepare_screen
 
 #
@@ -8,7 +9,7 @@ from spicy_snake.screen_helpers import prepare_screen
 #
 LEFT = (-1, 0)
 RIGHT = (1, 0)
-UP = (0, -1)  #FIXME: is this correct?
+UP = (0, -1)
 DOWN = (0, 1)
 
 # ASCII codes of characters on the keyboard
@@ -20,7 +21,7 @@ WALL_SYMBOL = '#'
 
 
 def draw(player_pos, pg, win, screen):
-    #TODO: separate functions draw_player and draw_playground
+    # separate functions draw_player and draw_playground
     screen.clear()
     # draw the player:
     x, y = player_pos
@@ -37,7 +38,7 @@ def draw(player_pos, pg, win, screen):
 win, screen = prepare_screen()
 
 def move_player(player_position, direction):
-    dx, dy = direction
+    dx,dy=direction
     x, y = player_position
     x += dx
     y += dy

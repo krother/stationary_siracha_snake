@@ -1,3 +1,6 @@
+"""
+Helper functions for managing the terminal display.
+"""
 
 import curses
 
