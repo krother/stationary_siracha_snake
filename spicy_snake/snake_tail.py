@@ -19,6 +19,10 @@ class Snake:
         """Moves the head to a new direction"""
         ...
 
+    def eat(self, playground):
+        """Eats food at the position of the head, if any"""
+        ...
+
     def check_collision(self, playground):
         """Returns True if the head hits an obstacle or the tail"""
         ...
