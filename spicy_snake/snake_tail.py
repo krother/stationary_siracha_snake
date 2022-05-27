@@ -1,13 +1,16 @@
-
+"""
+Here we manage the snake
+"""
 from spicy_snake.moves import move
 
 
 class Snake:
+    """A snake with a tail that grows"""
 
     def __init__(self, xstart, ystart):
         self.head = xstart, ystart
-        self.tail = [self.head]
-        self.growing = 0
+        self.tail = [self.head] # ???
+        self.growing = 0        # ???
         self.direction = 'right'
 
     def forward(self):
@@ -37,8 +40,7 @@ class Snake:
 
     def check_collision(self, playground):
         """Returns True if the head hits an obstacle or the tail"""
-        if playground.is_obstacle(self.head):
-            return True
-        else:
-            # check tail-collisions
-            return self.head in self.tail[:-1]
+        return (
+            playground.is_obstacle(self.head) or  # wall collisions
+            self.head in self.tail[:-1]  # tail collisions
+        )
