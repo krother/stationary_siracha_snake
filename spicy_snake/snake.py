@@ -25,7 +25,10 @@ def draw(player_pos, pg, win, screen):
     screen.clear()
     # draw the player:
     x, y = player_pos
-    screen.addch(y, x, SNAKE_SYMBOL, curses.color_pair(1))
+
+    symbol = 'O<'[(x+y)%2]
+    screen.addch(y, x, symbol, curses.color_pair(1))
+
     # draw the playground:
     for pgx in range(pg.xsize + 1):
         for pgy in range(pg.ysize + 1):
